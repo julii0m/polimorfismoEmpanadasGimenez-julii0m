@@ -7,14 +7,31 @@ object galvan {
 object baigorria {
 	var cantidadEmpanadasVendidas = 0
 	const montoPorEmpanada = 15
+	var sueldoRecibido
+	var sueldoTotal
 
 	method venderEmpanadas(cuantas) {
 		cantidadEmpanadasVendidas += cuantas
 	}
 
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
+	
+	method cobrarsueldo() {
+	sueldoRecibido= self.sueldo()
+		
+	}	
+	
+	method totalCobrado(){
+		
+		sueldoTotal +=sueldoRecibido
+		
+	}
+	
 }
 
+	
+		
+	
 object gimenez {
 	var dinero = 300000
 
@@ -22,6 +39,7 @@ object gimenez {
 
 	method pagarA(empleado) {
 		dinero -= empleado.sueldo()
+		empleado.cobrarsueldo()
 	}
 }
 
